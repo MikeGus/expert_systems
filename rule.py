@@ -18,5 +18,5 @@ class TRule:
 
     def __str__(self):
         delimeter = ' & ' if self.rule_type == ERuleType.AND else ' | '
-        left_side = delimeter.join(list(self.source_facts))
+        left_side = delimeter.join([str(f) for f in self.source_facts])
         return 'Rule[{} -> {}]'.format(left_side, self.result_fact)

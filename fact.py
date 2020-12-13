@@ -7,3 +7,6 @@ class TFact:
 
     def __str__(self):
         return 'Fact[{}]'.format(self.name)
+
+    def __hash__(self):
+        return hash(self.name)
