@@ -20,3 +20,6 @@ class TRule:
         delimeter = ' & ' if self.rule_type == ERuleType.AND else ' | '
         left_side = delimeter.join([str(f) for f in self.source_facts])
         return 'Rule[{} -> {}]'.format(left_side, self.result_fact)
+
+    def __hash__(self):
+        return hash(frozenset((self.rule_type, frozenset(self.source_facts), self.result_fact)))
